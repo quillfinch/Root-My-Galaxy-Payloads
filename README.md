@@ -15,6 +15,8 @@ It intentionally does not contain Android application source code.
 
 | Payload | Compatible models | Kernel version | Status |
 | --- | --- | --- | --- |
+| `essi-X520XXSACZH6` | Galaxy Tab S10 FE Wi-Fi `SM-X520` (`X520XXSACZH6`) | `6.6.102` | Device-tested: full ADB-shell chain incl. KernelSU late-load (see [`docs/SM-X520-X520XXSACZH6.md`](docs/SM-X520-X520XXSACZH6.md)) |
+| `essi-X520XXSBCZI2` | Galaxy Tab S10 FE Wi-Fi `SM-X520` (`X520XXSBCZI2`) | `6.6.102` | Offline port only; superseded by the hardware-validated ZH6 profile |
 | `galaxy-s25-series-2026-06-07` | Galaxy S25, S25+, S25 Edge, and S25 Ultra regional models | `6.6.98` | Device-tested |
 | `e3q-S928USQS6DZF2` | Galaxy S24 Ultra `SM-S928U1` | `6.1.145` | Device-tested |
 | `e3q-S9280ZCS6DZF2` | Galaxy S24 Ultra China `SM-S9280` | `6.1.145` | Device-tested |

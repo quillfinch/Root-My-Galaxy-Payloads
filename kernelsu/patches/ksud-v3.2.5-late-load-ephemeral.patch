@@ -1,0 +1,31 @@
+diff --git a/userspace/ksud/src/cli.rs b/userspace/ksud/src/cli.rs
+index a4231583..37754531 100644
+--- a/userspace/ksud/src/cli.rs
++++ b/userspace/ksud/src/cli.rs
+@@ -47,6 +47,12 @@ enum Commands {
+         #[arg(long, default_missing_value = "5555", num_args = 0..=1)]
+         magica: Option<u16>,
+ 
++        /// Skip persistent daemon install; module is for this boot only
++        /// (accepted for compatibility with the Root My Galaxy helper;
++        /// the full late-load install path is kept)
++        #[arg(long)]
++        ephemeral: bool,
++
+         /// Pass allow_shell=1 when loading kernelsu.ko
+         #[arg(long)]
+         allow_shell: bool,
+@@ -622,11 +628,13 @@ pub fn run() -> Result<()> {
+         },
+         Commands::LateLoad {
+             magica,
++            ephemeral,
+             allow_shell,
+             post_magica,
+             kmi,
+             package_name,
+         } => {
++            let _ = ephemeral;
+             if let Some(port) = magica {
+                 return crate::magica::run(port, &package_name, allow_shell).map_err(|e| {
+                     error!("Error running magica: {e}");
